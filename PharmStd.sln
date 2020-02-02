@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmStd.Crawl", "PharmStd.Crawl\PharmStd.Crawl.csproj", "{C57A46B6-20B0-4E9C-BADC-FC7335992C50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmStd.Data", "PharmStd.Data\PharmStd.Data.csproj", "{4F873A9B-D685-4B6C-877D-0BC35D1F0F7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmStd", "PharmStd\PharmStd.csproj", "{FC109D3E-7753-44E7-8044-EA1BDAC93B36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C57A46B6-20B0-4E9C-BADC-FC7335992C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C57A46B6-20B0-4E9C-BADC-FC7335992C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C57A46B6-20B0-4E9C-BADC-FC7335992C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C57A46B6-20B0-4E9C-BADC-FC7335992C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F873A9B-D685-4B6C-877D-0BC35D1F0F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F873A9B-D685-4B6C-877D-0BC35D1F0F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F873A9B-D685-4B6C-877D-0BC35D1F0F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F873A9B-D685-4B6C-877D-0BC35D1F0F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC109D3E-7753-44E7-8044-EA1BDAC93B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC109D3E-7753-44E7-8044-EA1BDAC93B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC109D3E-7753-44E7-8044-EA1BDAC93B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC109D3E-7753-44E7-8044-EA1BDAC93B36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

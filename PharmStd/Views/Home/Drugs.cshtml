@@ -1,0 +1,67 @@
+@model IEnumerable<PharmStd.Data.Drug>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid">
+    <h3 class="text-center"> Препараты</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <form action="@Url.Action("DrugsFilter")" method="post">
+            <div class="form-row align-items-center">
+                <div class="col my-1">
+
+                    <input type="text" class="form-control" name="Name" placeholder="Наименование">
+                </div>
+            </div>
+            <div class="form-row align-items-center">
+                <div class="col my-1">
+                    <input type="text" class="form-control" name="Category" placeholder="Категория">
+                </div>
+            </div>
+            <div class="form-row align-items-center">
+                <div class="col my-1">
+                    <input type="text" class="form-control" name="ActiveComponent" placeholder="Активный компонент">
+                </div>
+            </div>
+            <button class="col-sm-3 btn btn-primary my-1">Поиск</button>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-10">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Наименование</th>
+                <th>Категория</th>
+                <th>Фарм. группы</th>
+                <th>Активный компонент</th>
+                <th>Код ATX</th>
+                <th>Отпуск по рецепту</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var drug in Model)
+            {
+                <tr>
+                    <td>@drug.Name</td>
+                    <td>@drug.Category</td>
+                    <td>@string.Join(", ", drug.PharmGroup).</td>
+                    <td>@drug.ActiveComponent</td>
+                    <td>@drug.AtxCode</td>
+                    <td>@(drug.RxOnly ? "да" : "нет")</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</div>

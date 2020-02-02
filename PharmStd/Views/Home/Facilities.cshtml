@@ -1,0 +1,134 @@
+@model FacilitiesViewModel
+
+@{
+    ViewBag.Title = "Facilities";
+    Layout = "_Layout";
+}
+
+
+<div class="container-fluid">
+    <h3 class="text-center"> Медицинские учереждеия</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <form action="@Url.Action("FacilitiesFilter")" method="post">
+                <div class="form-row align-items-center">
+                    <div class="col my-1">
+
+                        <input type="text" class="form-control" name="Name" placeholder="Название">
+                    </div>
+                </div>
+                <button class="col-sm-3 btn btn-primary my-1">Поиск</button>
+
+            </form>
+
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <a id="add-facility-show" class="btn btn-primary my-3 mr-2" href="#!">Добавть учереждение</a>
+            <a id="add-patient-show" class="btn btn-primary my-3" href="#!">Добавть пациента в учереждение</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Адрес</th>
+                    <th>Номер телефона</th>
+                    <th>Кол-во пациентов</th>
+                    <th>Суммарное кол-во выписанных препаратов</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var facility in Model.Facilities)
+                {
+                    <tr>
+                        <td>@facility.Name</td>
+                        <td>@facility.Address</td>
+                        <td>@facility.PhoneNumber</td>
+                        <td>@facility.Patients.Length</td>
+                        <td>@facility.Patients.Sum(x => x.PrescribedDrugs.Length)</td>
+
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="add-patient">
+    <div class="modal-dialog" role="document">
+        <form class="modal-content" action="@Url.Action("AddPatientInFacility")" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить выписанный препарат</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <select class="custom-select mt-3" name="FacilityId">
+                    <option selected disabled>Учереждение</option>
+                    @foreach (var facility in Model.Facilities)
+                    {
+                        <option value="@facility.FacilityId">@facility.Name</option>
+                    }
+                </select>
+                <select class="custom-select mt-3" name="PatientId">
+                    <option selected disabled>Пациент</option>
+                    @foreach (var patient in Model.Patients)
+                    {
+                        <option value="@patient.PatientId">@patient.FirstName @patient.LastName</option>
+                    }
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="add-facility">
+    <div class="modal-dialog" role="document">
+        <form class="modal-content" action="@Url.Action("AddFacility")" method="post">
+            <div class="modal-header">
+                <h5 class="modal-title">Добавить пациента</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" class="form-control" id="name" name="Name">
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес</label>
+                    <input type="text" class="form-control" id="address" name="Address">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Номер телефона</label>
+                    <input type="tel" class="form-control" id="phone" name="Phone">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<script>
+$(()=>{
+    $("#add-facility-show").click(()=>$("#add-facility").modal('show'));
+    $("#add-patient-show").click(()=>$("#add-patient").modal('show'))
+})</script>
