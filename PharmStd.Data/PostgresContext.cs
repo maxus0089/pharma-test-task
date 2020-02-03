@@ -14,10 +14,11 @@ namespace PharmStd.Data
             new NpgsqlConnection("Server=127.0.0.1;Port=5432;Database=postgres;User Id=root;Password=123qweasd;");
        
 
-        public async Task DrugsInsert(Drug drug)
+        public async Task CreateDrug(Drug drug)
         {
             await using NpgsqlConnection cnn =
                 Connection;
+            
             await cnn.OpenAsync();
             try
             {
