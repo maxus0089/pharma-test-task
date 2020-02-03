@@ -38,7 +38,7 @@ namespace PharmStd.Crawl
                     count++;
                     try
                     {
-                        await _ctx.DrugsInsert(drug);
+                        await _ctx.CreateDrug(drug);
                     }
                     catch (Exception e)
                     {
