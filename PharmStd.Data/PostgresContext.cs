@@ -176,7 +176,7 @@ namespace PharmStd.Data
             try
             {
                 await cnn.ExecuteAsync(
-                    "INSERT INTO pharm.patientsinfacilities (facilityid, patientid) VALUES (@fid,@pid);",
+                    "INSERT INTO pharm.patientsinfacilities (facilityid, patientid) VALUES (@fid,@pid) ON CONFLICT DO NOTHING;",
                     new
                     {
                         pid=patientId,fid=facilityId
