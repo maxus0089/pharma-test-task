@@ -12,12 +12,10 @@ namespace PharmStd.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly PostgresContext _sql;
+        private readonly IPostgresContext _sql;
 
-        public HomeController(ILogger<HomeController> logger, PostgresContext sql)
+        public HomeController(IPostgresContext sql)
         {
-            _logger = logger;
             _sql = sql;
         }
 

@@ -8,6 +8,7 @@ using System.Web;
 using CsQuery;
 using HtmlAgilityPack;
 using PharmStd.Data;
+using PharmStd.Data.Models;
 
 namespace PharmStd.Crawl
 {

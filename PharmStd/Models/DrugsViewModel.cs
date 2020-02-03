@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PharmStd.Data;
+using PharmStd.Data.Models;
 
 namespace PharmStd.Models
 {

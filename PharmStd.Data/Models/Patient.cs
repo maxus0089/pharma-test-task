@@ -1,4 +1,4 @@
-namespace PharmStd.Data
+namespace PharmStd.Data.Models
 {
     public class Patient
     {

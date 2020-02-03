@@ -5,10 +5,11 @@ using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 using Dapper;
 using Npgsql;
+using PharmStd.Data.Models;
 
 namespace PharmStd.Data
 {
-    public class PostgresContext
+    public class PostgresContext : IPostgresContext
     {
         private NpgsqlConnection Connection =>
             new NpgsqlConnection("Server=127.0.0.1;Port=5432;Database=postgres;User Id=root;Password=123qweasd;");
